@@ -8,21 +8,13 @@ export function HeroSection() {
       id="hero"
       className="snap-section relative flex min-h-[100dvh] w-full items-center justify-center overflow-hidden"
     >
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 h-full w-full object-cover"
-        poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3Crect fill='%23000' width='1' height='1'/%3E%3C/svg%3E"
-      >
-        <source
-          src="https://videos.pexels.com/video-files/3129957/3129957-sd_640_360_30fps.mp4"
-          type="video/mp4"
-        />
-      </video>
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url(/hero-bg.svg)" }}
+        aria-hidden
+      />
 
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/80 to-black" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/75 to-black" />
       <div className="grid-bg absolute inset-0 opacity-30" />
 
       <motion.div
