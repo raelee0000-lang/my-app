@@ -1,6 +1,5 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { FadeIn, SectionLabel, SectionTitle, SectionWrapper } from "./SectionWrapper";
 
@@ -47,37 +46,28 @@ export function CaseStudiesSection() {
         </FadeIn>
 
         <div className="relative mx-auto mt-4 h-[340px] max-w-lg sm:h-[300px] sm:max-w-2xl">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={active}
-              initial={{ opacity: 0, x: 60 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -60 }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="glass-card absolute inset-0 flex flex-col justify-between rounded-3xl p-6 sm:p-8"
-            >
+          <div className="glass-card absolute inset-0 flex flex-col justify-between rounded-3xl p-6 sm:p-8">
+            <div>
+              <p className="text-xs uppercase tracking-widest text-accent">
+                Customer {active + 1} of {cases.length}
+              </p>
+              <h3 className="mt-3 text-2xl font-semibold text-white sm:text-3xl">
+                {cases[active].brand}
+              </h3>
+              <p className="mt-4 text-lg font-medium text-white/90">
+                {cases[active].result}
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-muted sm:text-base">
+                {cases[active].desc}
+              </p>
+            </div>
+            <div className="mt-6 flex items-end justify-between border-t border-white/10 pt-6">
               <div>
-                <p className="text-xs uppercase tracking-widest text-accent">
-                  Customer {active + 1} of {cases.length}
-                </p>
-                <h3 className="mt-3 text-2xl font-semibold text-white sm:text-3xl">
-                  {cases[active].brand}
-                </h3>
-                <p className="mt-4 text-lg font-medium text-white/90">
-                  {cases[active].result}
-                </p>
-                <p className="mt-3 text-sm leading-relaxed text-muted sm:text-base">
-                  {cases[active].desc}
-                </p>
+                <p className="text-3xl font-bold text-accent">{cases[active].metric}</p>
+                <p className="text-xs text-muted">{cases[active].metricLabel}</p>
               </div>
-              <div className="mt-6 flex items-end justify-between border-t border-white/10 pt-6">
-                <div>
-                  <p className="text-3xl font-bold text-accent">{cases[active].metric}</p>
-                  <p className="text-xs text-muted">{cases[active].metricLabel}</p>
-                </div>
-              </div>
-            </motion.div>
-          </AnimatePresence>
+            </div>
+          </div>
         </div>
 
         <div className="mt-8 flex justify-center gap-2">

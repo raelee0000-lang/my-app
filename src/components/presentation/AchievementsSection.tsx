@@ -1,7 +1,5 @@
 "use client";
 
-import { useInView } from "framer-motion";
-import { useRef } from "react";
 import { useCounter } from "@/hooks/useCounter";
 import { FadeIn, SectionLabel, SectionTitle, SectionWrapper } from "./SectionWrapper";
 
@@ -34,32 +32,29 @@ function StatCard({
 }
 
 export function AchievementsSection() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, amount: 0.4 });
-
   return (
     <SectionWrapper id="achievements" className="bg-black">
-      <div ref={ref} className="relative z-10 w-full max-w-5xl">
+      <div className="relative z-10 w-full max-w-5xl">
         <FadeIn className="flex flex-col items-center">
           <SectionLabel>Our Impact</SectionLabel>
           <SectionTitle>Company Achievements</SectionTitle>
         </FadeIn>
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-3 sm:gap-6">
-          <FadeIn delay={0.1}>
-            <StatCard value={137} label="Clients" active={inView} />
+          <FadeIn>
+            <StatCard value={137} label="Clients" active />
           </FadeIn>
-          <FadeIn delay={0.2}>
+          <FadeIn>
             <StatCard
               value={5.2}
               suffix="M"
               label="Devices Shipped"
               decimals={1}
-              active={inView}
+              active
             />
           </FadeIn>
-          <FadeIn delay={0.3}>
-            <StatCard value={18} label="Countries Served" active={inView} />
+          <FadeIn>
+            <StatCard value={18} label="Countries Served" active />
           </FadeIn>
         </div>
       </div>

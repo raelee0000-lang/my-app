@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { FadeIn, SectionLabel, SectionTitle, SectionWrapper } from "./SectionWrapper";
 
 const contacts = [
@@ -22,8 +21,8 @@ export function ContactSection() {
         </FadeIn>
 
         <div className="space-y-4">
-          {contacts.map((item, i) => (
-            <FadeIn key={item.label} delay={i * 0.1}>
+          {contacts.map((item) => (
+            <FadeIn key={item.label}>
               <a
                 href={item.href}
                 target={item.label === "Website" ? "_blank" : undefined}
@@ -41,18 +40,16 @@ export function ContactSection() {
           ))}
         </div>
 
-        <FadeIn delay={0.4}>
-          <motion.a
+        <FadeIn>
+          <a
             href="mailto:contact@xxtechnology.com"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
             className="mt-10 inline-flex w-full items-center justify-center rounded-full bg-accent px-8 py-4 text-base font-semibold text-black shadow-[0_0_40px_rgba(41,151,255,0.35)] transition-shadow hover:shadow-[0_0_60px_rgba(41,151,255,0.5)] sm:w-auto sm:min-w-[280px] sm:text-lg"
           >
             Start Your Project
-          </motion.a>
+          </a>
         </FadeIn>
 
-        <FadeIn delay={0.5}>
+        <FadeIn>
           <p className="mt-12 text-xs text-muted">
             © {new Date().getFullYear()} XX Technology. All rights reserved.
           </p>

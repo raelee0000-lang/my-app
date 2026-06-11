@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { FadeIn, SectionLabel, SectionTitle, SectionWrapper } from "./SectionWrapper";
 
 const capabilities = [
@@ -39,18 +38,9 @@ export function BusinessSection() {
         </FadeIn>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
-          {capabilities.map((item, i) => (
-            <motion.div
+          {capabilities.map((item) => (
+            <div
               key={item.title}
-              initial={{ opacity: 0, y: 40, scale: 0.96 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{
-                duration: 0.7,
-                delay: i * 0.12,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              whileHover={{ y: -4, transition: { duration: 0.25 } }}
               className="glass-card group rounded-2xl p-6 sm:p-8"
             >
               <span className="mb-4 inline-block text-2xl text-accent transition-transform group-hover:scale-110">
@@ -60,7 +50,7 @@ export function BusinessSection() {
               <p className="mt-3 text-sm leading-relaxed text-muted sm:text-base">
                 {item.desc}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { FadeIn, SectionLabel, SectionTitle, SectionWrapper } from "./SectionWrapper";
 
 const countries = [
@@ -36,7 +35,7 @@ export function GlobalPresenceSection() {
           </p>
         </FadeIn>
 
-        <FadeIn delay={0.2}>
+        <FadeIn>
           <div className="glass-card relative mx-auto aspect-[2/1] w-full max-w-3xl overflow-hidden rounded-3xl">
             <svg
               viewBox="0 0 100 50"
@@ -58,13 +57,9 @@ export function GlobalPresenceSection() {
               <line x1="2" y1="25" x2="98" y2="25" className="stroke-white/10" />
             </svg>
 
-            {countries.map((country, i) => (
-              <motion.div
+            {countries.map((country) => (
+              <div
                 key={country.name}
-                initial={{ scale: 0, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.05 * i, duration: 0.5, type: "spring" }}
                 className="absolute"
                 style={{ left: `${country.x}%`, top: `${country.y}%` }}
               >
@@ -72,14 +67,14 @@ export function GlobalPresenceSection() {
                   <div className="absolute inset-0 h-3 w-3 animate-ping rounded-full bg-accent/40" />
                   <div className="relative h-2 w-2 rounded-full bg-accent shadow-[0_0_12px_rgba(41,151,255,0.8)]" />
                 </div>
-              </motion.div>
+              </div>
             ))}
 
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30" />
           </div>
         </FadeIn>
 
-        <FadeIn delay={0.4}>
+        <FadeIn>
           <div className="mt-8 flex flex-wrap justify-center gap-2">
             {countries.map((c) => (
               <span

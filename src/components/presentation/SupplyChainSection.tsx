@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { FadeIn, SectionLabel, SectionTitle, SectionWrapper } from "./SectionWrapper";
 
 const steps = [
@@ -23,12 +22,8 @@ export function SupplyChainSection() {
           <div className="absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-accent via-accent/40 to-transparent sm:left-1/2 sm:-translate-x-px" />
 
           {steps.map((step, i) => (
-            <motion.div
+            <div
               key={step.title}
-              initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.7, delay: i * 0.15, ease: [0.22, 1, 0.36, 1] }}
               className={`relative mb-10 flex items-start gap-6 last:mb-0 sm:mb-14 ${
                 i % 2 === 0 ? "sm:flex-row" : "sm:flex-row-reverse"
               }`}
@@ -50,7 +45,7 @@ export function SupplyChainSection() {
                 </h3>
                 <p className="mt-2 text-sm text-muted">{step.desc}</p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
